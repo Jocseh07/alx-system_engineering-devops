@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+a=1
+while [ "$a" -le "20" ]; do
+
+	if [ $((a % 3)) -eq 0 ] && [ $((a % 5)) -eq 0 ]; then
+		echo "FizzBuzz"
+	elif [ $((a % 3)) -eq 0 ]; then
+		echo "Fizz"
+	elif [ $((a % 5)) -eq 0 ]; then
+		echo "Buzz"
+	else
+		echo "$a"
+	fi
+	a=$((a + 1))
+done
