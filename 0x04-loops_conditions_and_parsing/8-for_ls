@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 times
-list="$(ls)"
-for _ in "$list"; do
-	echo "$list" | cut -d "-" -f 2-4
+for file in ./*; do
+	echo "$file" | cut -d "-" -f 2-4
 done
