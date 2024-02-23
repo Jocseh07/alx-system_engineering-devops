@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# display its own PID
+ps | awk 'NR>1 {print $1}' | head -1
