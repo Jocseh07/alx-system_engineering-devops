@@ -1,4 +1,3 @@
-#!/ur/bin/puppet
 # install flask
 
 package {'flask':
