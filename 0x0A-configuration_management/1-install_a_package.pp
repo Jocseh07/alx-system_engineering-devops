@@ -1,3 +1,4 @@
+#!/usr/bin/env pup
 # install flask
 
 package {'flask':
