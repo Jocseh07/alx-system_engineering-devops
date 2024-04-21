@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # Connect to my server using the .ssh/school key with user ubuntu
 
-ssh -i ~/.ssh.school ubuntu@34.229.186.61
-
+ssh-keygen -b 4096 -f school -N betty
