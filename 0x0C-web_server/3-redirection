@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# install nginx web server
+
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo 'Hello World!' >/var/www/html/index.nginx-debian.html
+CONFIG="if ( $request_filename ~ redirect_me ) {\n
+                rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n
+        }"
+
+STRING="# pass PHP scripts to FastCGI server"
+
+sed -i "s/$STRING/$CONFIG/" /etc/nginx/sites-enabled/default
+
+service nginx start
