@@ -5,8 +5,7 @@ apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 echo 'Hello World!' >/var/www/html/index.nginx-debian.html
-CONFIG="
-server {
+CONFIG="server {
     listen 80 default_server;
 	listen [::]:80 default_server;
     root /var/www/html;
@@ -18,8 +17,7 @@ server {
     if ( \$request_filename ~ redirect_me ) {
         rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
     }
-}
-"
+}"
 
 echo -e "$CONFIG" >/etc/nginx/sites-enabled/default
 
