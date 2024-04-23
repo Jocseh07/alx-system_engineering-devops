@@ -5,12 +5,22 @@ apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 echo 'Hello World!' >/var/www/html/index.nginx-debian.html
-CONFIG="if ( $request_filename ~ redirect_me ) {\n
-                rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n
-        }"
+CONFIG="
+server {
+    listen 80 default_server;
+	listen [::]:80 default_server;
+    root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+    server_name _;
+    location / {
+		try_files $uri $uri/ =404;
+	}
+    if ( $request_filename ~ redirect_me ) {
+        rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+    }
+}
+"
 
-STRING="# pass PHP scripts to FastCGI server"
+echo -e "$CONFIG" >/etc/nginx/sites-enabled/default
 
-sed -i "s/$STRING/$CONFIG/" /etc/nginx/sites-enabled/default
-
-service nginx start
+service nginx restart
