@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# install haproxy
+
+apt-get -y install software-properties-common
+apt-get -y update
+apt-get install -y haproxy
+
+echo "
+        listen load-balancer
+        bind *:80
+        mode http
+        balance roundrobin
+        option forwardfor
+        server 531633-web-01 100.25.149.16 check
+        server 531633-web-02 100.25.146.118 check
+" >>/etc/haproxy/haproxy.cfg
+
+service haproxy start
+service haproxy restart
