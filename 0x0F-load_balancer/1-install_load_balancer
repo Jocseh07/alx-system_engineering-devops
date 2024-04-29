@@ -5,11 +5,14 @@ apt-get -y install software-properties-common
 apt-get -y update
 apt-get install -y haproxy
 
+echo "ENABLED=1" >>/etc/default/haproxy
+
 echo "
         listen load-balancer
         bind *:80
         mode http
         balance roundrobin
+        option http-keep-alive
         option forwardfor
         server 531633-web-01 100.25.149.16 check
         server 531633-web-02 100.25.146.118 check
