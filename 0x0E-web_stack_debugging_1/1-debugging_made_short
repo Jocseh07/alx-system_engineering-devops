@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# configure server to listem to port 80
+
+service nginx restart
