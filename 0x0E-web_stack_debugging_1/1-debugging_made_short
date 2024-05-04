@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # configure server to listem to port 80
-
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx restart
-pkill nginx
+kill $(pgrep nginx | head - 1)
