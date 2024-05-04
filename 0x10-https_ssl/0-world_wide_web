@@ -2,7 +2,7 @@
 # configuring the domain
 
 domain() {
-    line=$(dig "$1" "$2" | grep -A1 "ANSWER SECTION:" | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+    line=$(dig "$1"."$2" | grep -A1 "ANSWER SECTION:" | tr '\t' '\n' | tail -2 | tr '\n' ' ')
     echo "$1 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
 }
 
