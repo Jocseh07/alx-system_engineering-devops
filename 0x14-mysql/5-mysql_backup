@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# backup db
+
+day=$(date +%d)
+month=$(date +%m)
+year=$(date +%Y)
+
+sudo mysql -u root -p "$1" -e "mysqldump tyrell_corp > backup.sql"
+
+tar -czvf "$day"-"$month"-"$year".tar.gz backup.sql
