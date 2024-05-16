@@ -5,6 +5,7 @@ day=$(date +%d)
 month=$(date +%m)
 year=$(date +%Y)
 
-sudo mysql -u root -p "$1" -e "mysqldump tyrell_corp > backup.sql"
+
+sudo mysqldump -u root -p"$1" --all-databases > backup.sql
 
 tar -czvf "$day"-"$month"-"$year".tar.gz backup.sql
