@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
             KHTML, like Gecko) Ubuntu/14.04.6 Chrome/81.0.3990.0 Safari/537.36"
     }
     response = requests.get(url, headers=headers,
-                            allow_redirects=False,)
+                            allow_redirects=False)
     if response.status_code == 404:
         return 0
     total = response.json().get("data").get("subscribers")
