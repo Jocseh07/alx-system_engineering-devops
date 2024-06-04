@@ -15,4 +15,4 @@ def number_of_subscribers(subreddit):
                             allow_redirects=False,)
     if response.status_code == 404:
         return 0
-    return response.json()["data"]["subscribers"]
+    return response.json().get("data").get("subscribers")
