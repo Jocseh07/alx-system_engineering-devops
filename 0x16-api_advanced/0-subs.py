@@ -8,8 +8,8 @@ def number_of_subscribers(subreddit):
     """Return the number of subscribers for a subreddit."""
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US)\
-        AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.53 Safari/525.19"
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64;\
+            rv:109.0) Gecko/20100101 Firefox/115.0"
     }
     response = requests.get(url, headers=headers,
                             allow_redirects=False,)
