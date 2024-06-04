@@ -14,7 +14,7 @@ def top_ten(subreddit):
     }
     response = requests.get(url, headers=headers,
                             allow_redirects=False, params=params)
-    if response.status_code != 200:
+    if response.status_code == 404:
         print("None")
         return
     total = response.json()["data"]["children"]
