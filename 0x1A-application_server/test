@@ -1,0 +1,11 @@
+gunicorn --bind 0.0.0.0:5003 web_dynamic.2-hbnb:app >/dev/null 2>&1 &
+echo $! >$(date "+%Y-%m-%d--%T").pid
+
+gunicorn --bind 0.0.0.0:5002 api.v1.app:app >/dev/null 2>&1 &
+echo $! >$(date "+%Y-%m-%d--%T").pid
+
+gunicorn --bind 0.0.0.0:5001 web_flask.6-number_odd_or_even:app >/dev/null 2>&1 &
+echo $! >$(date "+%Y-%m-%d--%T").pid
+
+gunicorn --bind 0.0.0.0:5000 web_flask.0-hello_route:app >/dev/null 2>&1 &
+echo $! >$(date "+%Y-%m-%d--%T").pid
