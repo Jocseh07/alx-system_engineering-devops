@@ -1,8 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # kill gunicorn gracefully
 
 PID=$(pgrep -f 'gunicorn')
 
-if [ -n "$PID" ]; then
-    kill -HUP "$PID"
-fi
+for PID in $PIDS; do
+    if [ -n "$PID" ]; then
+        kill -HUP "$PID"
+    fi
+done
