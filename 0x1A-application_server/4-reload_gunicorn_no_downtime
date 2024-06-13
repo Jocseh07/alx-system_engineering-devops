@@ -3,8 +3,6 @@
 
 PIDS=$(pgrep -f 'gunicorn')
 
-for PID in $PIDS; do
-    if [ -n "$PID" ]; then
-        kill -HUP "$PID"
-    fi
-done
+if [ -n "$PIDS" ]; then
+    kill -HUP "$PIDS"
+fi
