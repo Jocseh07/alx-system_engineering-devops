@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # kill gunicorn gracefully
 
-PIDS=$(pgrep -f 'gunicorn')
+PIDS=$(pgrep 'gunicorn')
 
 if [ -n "$PIDS" ]; then
     kill -HUP "$PIDS"
